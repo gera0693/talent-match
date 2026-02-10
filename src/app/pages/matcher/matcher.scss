@@ -243,3 +243,38 @@
   width: 28px;
   height: 28px;
 }
+
+.employee-card {
+  position: relative;
+  padding-top: 36px;
+}
+
+.match-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* High */
+.match-badge.high {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+}
+
+/* Medium */
+.match-badge.medium {
+  background-color: #fff8e1;
+  color: #f9a825;
+}
+
+/* Low */
+.match-badge.low {
+  background-color: #ffebee;
+  color: #c62828;
+}

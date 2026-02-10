@@ -67,6 +67,18 @@ export class Matcher {
     return this.data.skills().find(s => s.id === skillId)?.name ?? 'Unknown';
   }
 
+  getMatchLabel(percentage: number): string {
+    if (percentage >= 75) return 'High match';
+    if (percentage >= 50) return 'Medium match';
+    return 'Low match';
+  }
+
+  getMatchClass(percentage: number): string {
+    if (percentage >= 75) return 'high';
+    if (percentage >= 50) return 'medium';
+    return 'low';
+  }
+
   constructor(public data: DataService,
     private dialog: MatDialog
   ) {}

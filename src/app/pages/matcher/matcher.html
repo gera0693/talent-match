@@ -150,7 +150,7 @@
 
       <!-- Results -->
       <div class="grid" *ngIf="matches().length; else emptyState">
-        <mat-card class="employee-card" *ngFor="let match of matches()">
+        <!-- <mat-card class="employee-card" *ngFor="let match of matches()">
 
           <mat-card-header>
             <div mat-card-avatar class="avatar-wrapper">
@@ -161,6 +161,48 @@
 
             <mat-card-title>{{ match.employee.name }}</mat-card-title>
             <mat-card-subtitle>Internal Candidate</mat-card-subtitle>
+          </mat-card-header>
+
+          <mat-card-content>
+            <div class="match-info">
+              <span>Skill match</span>
+              <strong>{{ match.percentage }}%</strong>
+            </div>
+
+            <mat-progress-bar
+              mode="determinate"
+              [value]="match.percentage"
+              [color]="match.percentage >= 70 ? 'primary' : 'warn'">
+            </mat-progress-bar>
+          </mat-card-content>
+
+          <mat-card-actions align="end" style="margin-top: auto;">
+            <button mat-button color="primary">View profile</button>
+            <button
+              mat-button
+              color="primary"
+              (click)="openMatchDetail(match)">
+              View details
+            </button>
+          </mat-card-actions>
+
+        </mat-card> -->
+        <mat-card class="employee-card" *ngFor="let match of matches()">
+
+          <div class="match-badge"
+              [ngClass]="getMatchClass(match.percentage)">
+            {{ getMatchLabel(match.percentage) }}
+          </div>
+
+          <mat-card-header>
+            <div mat-card-avatar class="avatar-wrapper">
+              <img
+                src="https://i.pravatar.cc/150?u={{match.employee.id}}"
+                alt="avatar" />
+            </div>
+
+            <mat-card-title>{{ match.employee.name }}</mat-card-title>
+            <mat-card-subtitle style="margin-bottom: 8px;">Internal Candidate</mat-card-subtitle>
           </mat-card-header>
 
           <mat-card-content>
