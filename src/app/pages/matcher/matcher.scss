@@ -1,33 +1,3 @@
-// .section {
-//   padding: 16px;
-// }
-
-// .grid {
-//   margin-top: 24px;
-//   display: grid;
-//   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-//   gap: 16px;
-// }
-
-// .employee-card {
-//   text-align: center;
-//   padding: 16px;
-// }
-
-// .avatar {
-//   width: 80px;
-//   height: 80px;
-//   border-radius: 50%;
-//   margin-bottom: 12px;
-// }
-
-// .header-row {
-//   display: flex;
-//   justify-content: space-between;
-//   align-items: center;
-//   margin-bottom: 16px;
-// }
-
 .section {
   padding: 24px;
 }
@@ -183,7 +153,7 @@
   margin-bottom: 12px;
 
   .job-icon {
-    font-size: 24px;
+    font-size: 20px;
     color: var(--mat-primary-500);
   }
 

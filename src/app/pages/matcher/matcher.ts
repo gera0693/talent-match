@@ -1,18 +1,18 @@
+import { MatchDetailDialogComponent } from '../../components/match-detail-dialog/match-detail-dialog';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { Component, computed, signal } from '@angular/core';
+import { MatDialogModule } from '@angular/material/dialog';
 import { MatSelectModule } from '@angular/material/select';
 import { calculateMatch } from '../../utils/matcher.utils';
 import { DataService } from '../../services/data.service';
+import { MatChipsModule } from '@angular/material/chips';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
-import { CommonModule } from '@angular/common';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatListModule } from '@angular/material/list';
 import { MatDialog } from '@angular/material/dialog';
-import { MatDialogModule } from '@angular/material/dialog';
-import { MatChipsModule } from '@angular/material/chips';
-import { MatchDetailDialogComponent } from '../../components/match-detail-dialog/match-detail-dialog';
+import { CommonModule } from '@angular/common';
 
 @Component({
   standalone: true,
