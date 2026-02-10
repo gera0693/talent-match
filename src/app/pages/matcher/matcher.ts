@@ -11,6 +11,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatListModule } from '@angular/material/list';
 import { MatDialog } from '@angular/material/dialog';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatChipsModule } from '@angular/material/chips';
 import { MatchDetailDialogComponent } from '../../components/match-detail-dialog/match-detail-dialog';
 
 @Component({
@@ -24,7 +25,8 @@ import { MatchDetailDialogComponent } from '../../components/match-detail-dialog
     MatProgressBarModule,
     MatFormFieldModule,
     MatIconModule,  
-    MatListModule
+    MatListModule,
+    MatChipsModule,
   ],
   templateUrl: './matcher.html',
   styleUrl: './matcher.scss',
@@ -59,6 +61,10 @@ export class Matcher {
         percentage: match.percentage
       }
     });
+  }
+
+  getSkillName(skillId: number): string {
+    return this.data.skills().find(s => s.id === skillId)?.name ?? 'Unknown';
   }
 
   constructor(public data: DataService,

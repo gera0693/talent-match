@@ -203,35 +203,62 @@
   <!-- ================= EMPLOYEES TAB ================= -->
   <mat-tab label="Employees">
 
-    <div class="section">
+  <div class="section">
 
-      <div class="header-row">
-        <div>
-          <h2>Employees</h2>
-          <p>All internal employees and their skills</p>
-        </div>
-
-        <button mat-flat-button color="primary">
-          <mat-icon>add</mat-icon>
-          Add Employee
-        </button>
+    <div class="header-row">
+      <div>
+        <h2>Employees</h2>
+        <p class="tab-subtitle">All internal employees and their skills</p>
       </div>
 
-      <mat-card>
-        <mat-list>
-          <mat-list-item *ngFor="let emp of data.employees()">
-            <img matListAvatar src="https://i.pravatar.cc/100?u={{emp.id}}" />
-            <h4 matLine>{{ emp.name }}</h4>
-            <p matLine>{{ emp.skillIds.length }} skills</p>
-            <button mat-icon-button>
-              <mat-icon>more_vert</mat-icon>
-            </button>
-          </mat-list-item>
-        </mat-list>
+      <button mat-flat-button color="primary">
+        <mat-icon>add</mat-icon>
+        Add Employee
+      </button>
+    </div>
+
+    <div class="employee-tab-grid">
+
+      <mat-card class="employee-tab-card" *ngFor="let emp of data.employees()">
+
+        <!-- Avatar -->
+        <img
+          class="tab-avatar"
+          src="https://i.pravatar.cc/150?u={{ emp.id }}"
+          alt="avatar" />
+
+        <!-- Info -->
+        <h3>{{ emp.name }}</h3>
+        <p class="tab-muted">{{ emp.skillIds.length }} skills</p>
+
+        <!-- Skills preview -->
+        <mat-chip-set>
+          <mat-chip
+            *ngFor="let skill of emp.skillIds.slice(0, 4)">
+            {{ getSkillName(skill) }}
+          </mat-chip>
+
+          <mat-chip *ngIf="emp.skillIds.length > 4" disabled>
+            +{{ emp.skillIds.length - 4 }}
+          </mat-chip>
+        </mat-chip-set>
+
+        <!-- Actions -->
+        <button
+          mat-stroked-button
+          class="card-action-btn"
+          color="primary"
+          style="margin-top: 12px; width: 100%">
+          View profile
+        </button>
+
       </mat-card>
 
     </div>
-  </mat-tab>
+
+  </div>
+</mat-tab>
+
 
   <!-- ================= JOBS TAB ================= -->
   <mat-tab label="Job Positions">
