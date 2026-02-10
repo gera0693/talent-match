@@ -156,3 +156,64 @@
 .tab-subtitle {
   color: rgba(0,0,0,0.6);
 }
+
+.jobs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.job-card {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  border-radius: 16px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+  }
+}
+
+.job-tab-header {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 12px;
+
+  .job-icon {
+    font-size: 32px;
+    color: var(--mat-primary-500);
+  }
+
+  .job-info {
+    h3 {
+      margin: 0;
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    .job-meta {
+      font-size: 0.85rem;
+      color: rgba(0, 0, 0, 0.6);
+    }
+  }
+}
+
+.skills-preview {
+  margin-top: 8px;
+  margin-bottom: 16px;
+
+  mat-chip {
+    font-size: 0.75rem;
+  }
+}
+
+.job-actions {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+

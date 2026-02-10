@@ -176,7 +176,7 @@
             </mat-progress-bar>
           </mat-card-content>
 
-          <mat-card-actions align="end">
+          <mat-card-actions align="end" style="margin-top: auto;">
             <button mat-button color="primary">View profile</button>
             <button
               mat-button
@@ -261,7 +261,7 @@
 
 
   <!-- ================= JOBS TAB ================= -->
-  <mat-tab label="Job Positions">
+  <!-- <mat-tab label="Job Positions">
 
     <div class="section">
 
@@ -290,7 +290,75 @@
       </div>
 
     </div>
-  </mat-tab>
+  </mat-tab> -->
+  <mat-tab label="Job Positions">
+
+  <div class="section">
+
+    <!-- Header -->
+    <div class="header-row">
+      <div>
+        <h2>Job Positions</h2>
+        <p class="subtitle">Open and internal job roles</p>
+      </div>
+
+      <button mat-flat-button color="primary">
+        <mat-icon>add</mat-icon>
+        Add Job
+      </button>
+    </div>
+
+    <!-- Grid -->
+    <div class="jobs-grid">
+
+      <mat-card
+        class="job-card"
+        *ngFor="let job of data.jobs()">
+
+        <!-- Top -->
+        <div class="job-tab-header">
+          <mat-icon class="job-icon">work_outline</mat-icon>
+
+          <div class="job-info">
+            <h3>{{ job.title }}</h3>
+            <span class="job-meta">
+              {{ job.skillIds.length }} required skills
+            </span>
+          </div>
+        </div>
+
+        <!-- Skills preview -->
+        <mat-chip-set class="skills-preview">
+          <mat-chip
+            *ngFor="let skill of job.skillIds.slice(0, 3)">
+            {{ getSkillName(skill) }}
+          </mat-chip>
+
+          <mat-chip
+            *ngIf="job.skillIds.length > 3"
+            disabled>
+            +{{ job.skillIds.length - 3 }}
+          </mat-chip>
+        </mat-chip-set>
+
+        <!-- Actions -->
+        <div class="job-actions">
+          <button mat-stroked-button color="primary">
+            View
+          </button>
+
+          <button mat-icon-button>
+            <mat-icon>edit</mat-icon>
+          </button>
+        </div>
+
+      </mat-card>
+
+    </div>
+
+  </div>
+</mat-tab>
+
 
 </mat-tab-group>
 
