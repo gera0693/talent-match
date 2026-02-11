@@ -33,6 +33,9 @@ import { CommonModule } from '@angular/common';
 })
 export class Matcher {
 
+  selectedEmployeeSkills = signal<number[]>([]);
+  selectedJobSkills = signal<number[]>([]);
+  
   selectedJobId = signal<number | null>(null);
 
   selectedJob = computed(() =>
@@ -78,6 +81,24 @@ export class Matcher {
     if (percentage >= 50) return 'medium';
     return 'low';
   }
+
+  filteredEmployees = computed(() => {
+    const skills = this.selectedEmployeeSkills();
+    if (!skills.length) return this.data.employees();
+
+    return this.data.employees().filter(emp =>
+      skills.every(skillId => emp.skillIds.includes(skillId))
+    );
+  });
+
+  filteredJobs = computed(() => {
+    const skills = this.selectedJobSkills();
+    if (!skills.length) return this.data.jobs();
+
+    return this.data.jobs().filter(job =>
+      skills.every(skillId => job.skillIds.includes(skillId))
+    );
+  });
 
   constructor(public data: DataService,
     private dialog: MatDialog

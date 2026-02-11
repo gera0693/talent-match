@@ -99,9 +99,37 @@
         </button>
       </div>
 
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Filter by skills
+          <span *ngIf="selectedEmployeeSkills().length">
+            ({{ selectedEmployeeSkills().length }})
+          </span>
+        </mat-label>
+        <mat-select
+          multiple
+          [value]="selectedEmployeeSkills()"
+          (selectionChange)="selectedEmployeeSkills.set($event.value)">
+
+          <mat-option
+            *ngFor="let skill of data.skills()"
+            [value]="skill.id">
+            {{ skill.name }}
+          </mat-option>
+
+        </mat-select>
+      </mat-form-field>
+      <button
+        mat-button
+        color="primary"
+        *ngIf="selectedEmployeeSkills().length"
+        (click)="selectedEmployeeSkills.set([])"
+        style="margin-bottom: 12px;">
+        Clear filters
+      </button>
+
       <div class="employee-tab-grid">
 
-        <mat-card class="employee-tab-card" *ngFor="let emp of data.employees()">
+        <mat-card class="employee-tab-card" *ngFor="let emp of filteredEmployees()">
 
           <!-- Avatar -->
           <img
@@ -158,12 +186,41 @@
         </button>
       </div>
 
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Filter by skills
+          <span *ngIf="selectedJobSkills().length">
+            ({{ selectedJobSkills().length }})
+          </span>
+        </mat-label>
+        <mat-select
+          multiple
+          [value]="selectedJobSkills()"
+          (selectionChange)="selectedJobSkills.set($event.value)">
+
+          <mat-option
+            *ngFor="let skill of data.skills()"
+            [value]="skill.id">
+            {{ skill.name }}
+          </mat-option>
+
+        </mat-select>
+      </mat-form-field>
+
+      <button
+        mat-button
+        color="primary"
+        *ngIf="selectedJobSkills().length"
+        (click)="selectedJobSkills.set([])"
+        style="margin-bottom: 12px;">
+        Clear filters
+      </button>
+
       <!-- Grid -->
       <div class="jobs-grid">
 
         <mat-card
           class="job-card"
-          *ngFor="let job of data.jobs()">
+          *ngFor="let job of filteredJobs()">
 
           <!-- Top -->
           <div class="job-tab-header">
