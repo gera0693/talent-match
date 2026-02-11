@@ -182,7 +182,8 @@
         <button 
           mat-flat-button 
           color="primary" 
-          class="add-employee-btn">
+          class="add-employee-btn"
+          (click)="openJob()">
           <mat-icon>add</mat-icon>
           Add Job
         </button>
@@ -252,11 +253,14 @@
 
           <!-- Actions -->
           <div class="job-actions">
-            <button mat-stroked-button color="primary">
+            <!-- <button mat-stroked-button color="primary"
+            (click)="openJob(job)">
               View
-            </button>
+            </button> -->
 
-            <button mat-icon-button>
+            <button mat-icon-button
+            (click)="openJob(job)"
+            style="margin-left: auto;">
               <mat-icon>edit</mat-icon>
             </button>
           </div>

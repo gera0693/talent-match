@@ -1,3 +1,4 @@
+import { JobPositionDialogComponent } from '../../components/job-position-detail-dialog/job-position-detail-dialog';
 import { EmployeeDialogComponent } from '../../components/employee-detail-dialog/employee-detail-dialog';
 import { MatchDetailDialogComponent } from '../../components/match-detail-dialog/match-detail-dialog';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
@@ -114,6 +115,23 @@ export class Matcher {
         this.data.updateEmployee(result);
       } else {
         this.data.addEmployee(result);
+      }
+    });
+  }
+
+  openJob(job?: any) {
+    const dialogRef = this.dialog.open(JobPositionDialogComponent, {
+      width: '520px',
+      data: { job }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (!result) return;
+
+      if (job) {
+        this.data.updateJob(result);
+      } else {
+        this.data.addJob(result);
       }
     });
   }
