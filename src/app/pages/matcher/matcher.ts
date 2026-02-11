@@ -1,3 +1,4 @@
+import { EmployeeDialogComponent } from '../../components/employee-detail-dialog/employee-detail-dialog';
 import { MatchDetailDialogComponent } from '../../components/match-detail-dialog/match-detail-dialog';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -99,6 +100,23 @@ export class Matcher {
       skills.every(skillId => job.skillIds.includes(skillId))
     );
   });
+
+  openEmployee(employee?: any) {
+    const dialogRef = this.dialog.open(EmployeeDialogComponent, {
+      width: '520px',
+      data: { employee }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (!result) return;
+
+      if (employee) {
+        this.data.updateEmployee(result);
+      } else {
+        this.data.addEmployee(result);
+      }
+    });
+  }
 
   constructor(public data: DataService,
     private dialog: MatDialog
