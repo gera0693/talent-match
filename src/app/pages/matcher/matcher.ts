@@ -86,11 +86,14 @@ export class Matcher {
 
   filteredEmployees = computed(() => {
     const skills = this.selectedEmployeeSkills();
-    if (!skills.length) return this.data.employees();
+    const employees = this.data.employees();
 
-    return this.data.employees().filter(emp =>
-      skills.every(skillId => emp.skillIds.includes(skillId))
-    );
+    return employees
+      .filter(emp => emp.id !== 60) // 🔹 excluir admin
+      .filter(emp => {
+        if (!skills.length) return true;
+        return skills.every(skillId => emp.skillIds.includes(skillId));
+      });
   });
 
   filteredJobs = computed(() => {

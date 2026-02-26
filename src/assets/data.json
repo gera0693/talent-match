@@ -3181,14 +3181,6 @@
       "role": "user"
     },
     {
-      "id": 44,
-      "name": "Diego Escamilla",
-      "skillIds": [],
-      "username": "diego.escamilla",
-      "password": "1234",
-      "role": "user"
-    },
-    {
       "id": 45,
       "name": "Randall Jimenez",
       "skillIds": [
@@ -3789,14 +3781,6 @@
       "role": "user"
     },
     {
-      "id": 56,
-      "name": "Moises Rivera",
-      "skillIds": [],
-      "username": "moises.rivera",
-      "password": "1234",
-      "role": "user"
-    },
-    {
       "id": 57,
       "name": "Rolando Hernandez",
       "skillIds": [],
@@ -3935,6 +3919,14 @@
       "username": "windsor.gomez",
       "password": "1234",
       "role": "user"
+    },
+    { 
+      "id": 60,
+      "username": "admin",
+      "password": "1234",
+      "role": "admin",
+      "name": "Administrator",
+      "skillIds": []
     }
   ]
 }
